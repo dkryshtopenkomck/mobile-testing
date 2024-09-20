@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bs": "nightwatch --config ./config/nightwatch-bs.conf.js --test nightwatch/specs/*.test.ts --env browserstack.android",
-    "local": "nightwatch --config ./config/nightwatch-local.conf.js --test nightwatch/specs/*.test.ts  --env app.android.emulator",
+    "bs": "nightwatch --config ./config/nightwatch-bs.conf.js --test nightwatch/specs/**/*.test.ts --env browserstack.android",
+    "local": "nightwatch --config ./config/nightwatch-local.conf.js --test nightwatch/specs/**/*.test.ts  --env app.android.emulator",
     "clean": "rm -rf tests_output logs",
     "prebs": "npm run clean",
     "prelocal": "npm run clean"

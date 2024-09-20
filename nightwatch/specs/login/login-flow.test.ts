@@ -1,6 +1,6 @@
 import {NightwatchAPI} from 'nightwatch';
-import {UserManager} from "../services/users/users-manager";
-import AuthFactory from "../helpers/auth-strategy/auth-factory";
+import {UserManager} from "../../services/users/users-manager";
+import AuthFactory from "../../helpers/auth-strategy/auth-factory";
 
 describe('Login flow', function() {
 

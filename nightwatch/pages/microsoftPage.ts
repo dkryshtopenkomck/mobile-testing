@@ -23,6 +23,7 @@ const microsoftPageCommands = {
         }, 60 * 1000);
     },
 
+    // todo figure out
     async clickIfAvailable(this: EnhancedPageObject, selector: string, timeout: number = 10000) {
         const isPresent = await this.waitForElementPresent(selector, timeout, 1000);
         if (isPresent) {
@@ -44,6 +45,7 @@ const microsoftPageCommands = {
 
         await this.sendKeys('@emailInput', email);
         await this.click('@signInButton');
+        await this.api.pause(1000);
         await this.sendKeys('@passwordInput', password);
         await this.click('@signInButton');
         await this.click('@signInAnotherWayButton');
@@ -52,6 +54,13 @@ const microsoftPageCommands = {
         await this.click('@signInButton');
         await this.waitForNativeContext();
         await this.api.appium.setContext('NATIVE_APP');
+        await this.api.pause(10000);
+        //
+        // Set pin code
+        const pinCode = '1234';
+        await this.sendKeys('@passwordField', pinCode);
+        await this.sendKeys('@confirmPasswordField', pinCode);
+        await this.click('@submitButton');
         await this.api.pause(1000);
     },
 };
@@ -84,6 +93,20 @@ const microsoftPage = {
         },
         proofTile: {
             selector: '#idDiv_SAOTCS_Proofs div.tile:last-child',
+        },
+        //
+        // Pin code form
+        passwordField: {
+            selector: '//android.widget.EditText[@content-desc="firstAppRunInputPassword-text-input"]',
+            locateStrategy: 'xpath',
+        },
+        confirmPasswordField: {
+            selector: '//android.widget.EditText[@content-desc="firstAppRunInputPasswordConfirmation-text-input"]',
+            locateStrategy: 'xpath',
+        },
+        submitButton: {
+            selector: '//android.view.ViewGroup[@content-desc="firstAppRunInputSave"]',
+            locateStrategy: 'xpath',
         },
     },
 } satisfies PageObjectModel;
