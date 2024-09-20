@@ -2,11 +2,11 @@ import { PageObjectModel, EnhancedPageObject } from 'nightwatch';
 
 const microsoftPageCommands = {
     waitForLoginButton(this: EnhancedPageObject) {
-        return this.waitForElementPresent('xpath', '//android.widget.TextView[@content-desc="onlineLoginSignIn-text-base"]', 60000);
+        return this.waitForElementPresent('@loginButton', 60000);
     },
 
     clickLoginButton(this: EnhancedPageObject) {
-        return this.click('xpath', '//android.widget.TextView[@content-desc="onlineLoginSignIn-text-base"]');
+        return this.click('@loginButton');
     },
 
     waitForWebViewContext(this: EnhancedPageObject) {
@@ -23,11 +23,24 @@ const microsoftPageCommands = {
         }, 60 * 1000);
     },
 
+    async clickIfAvailable(this: EnhancedPageObject, selector: string, timeout: number = 10000) {
+        const isPresent = await this.waitForElementPresent(selector, timeout, 1000);
+        if (isPresent) {
+            await this.click(selector);
+        }
+    },
+
+
     async login(this: EnhancedPageObject, email: string, password: string, otp: string) {
+
+        // click otherTile if exists
         await this.waitForLoginButton();
         await this.clickLoginButton();
+        await this.api.pause(5000);
         await this.waitForWebViewContext();
         await this.api.appium.setContext('WEBVIEW_chrome');
+
+        await this.clickIfAvailable('@otherTile');
 
         await this.sendKeys('@emailInput', email);
         await this.click('@signInButton');
@@ -39,6 +52,7 @@ const microsoftPageCommands = {
         await this.click('@signInButton');
         await this.waitForNativeContext();
         await this.api.appium.setContext('NATIVE_APP');
+        await this.api.pause(1000);
     },
 };
 
@@ -46,6 +60,13 @@ const microsoftPage = {
     url: 'https://login.microsoftonline.com',
     commands: [microsoftPageCommands],
     elements: {
+        loginButton: {
+            selector: '//android.widget.TextView[@content-desc="onlineLoginSignIn-text-base"]',
+            locateStrategy: 'xpath',
+        },
+        otherTile: {
+            selector: '#otherTile',
+        },
         emailInput: {
             selector: '[type="email"]',
         },
