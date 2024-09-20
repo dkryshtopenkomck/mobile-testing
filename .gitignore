@@ -1,0 +1,45 @@
+# Node modules
+/node_modules/
+
+# Apps
+/apps/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+/dist/
+/build/
+
+# Environment variables
+.env*
+
+# IDE specific files
+/.idea/
+/*.iml
+
+# Nightwatch reports
+/reports/
+/tests_output/
+
+# Appium
+*.appium
+
+# BrowserStack
+*.browserstack
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage directory used by tools like istanbul
+/coverage/
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
