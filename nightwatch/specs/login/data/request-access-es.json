@@ -1,0 +1,14 @@
+{
+  "internalUserLabel": "Solicitar acceso",
+  "internalUserValue": "Si es un usuario interno de Ericsson (empleado o consultor) continúe aquí para obtener información de acceso.",
+  "internalUserAccessLink": "Acceso de usuario interno",
+
+  "externalUserLabel": "Usuario externo",
+  "externalUserValue": "si tiene un signo que comienza con 'Z' o 'X', su persona de contacto de Ericsson puede solicitar acceso por usted.",
+  "externalUserAccessLink": "Acceso de usuarios externos",
+
+  "strongAuthLabel": "Autenticación fuerte",
+  "strongAuthValue": "Ericsson Connected Operations requiere autenticación de dos factores proporcionada por el Servicio de autenticación fuerte. Si no se ha inscrito en el Servicio de autenticación fuerte, continúe con una de las siguientes opciones.",
+  "manageInternalUserLink": "Administrar la autenticación segura de usuarios internos",
+  "manageExternalUserLink": "Administrar la autenticación segura de usuarios externos"
+}

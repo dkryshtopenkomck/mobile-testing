@@ -7,7 +7,7 @@
     "bs": "nightwatch --config ./config/nightwatch-bs.conf.js --test nightwatch/specs/**/*.test.ts --env browserstack.android --reporter=nightwatch-ctrf-json-reporter",
     "emu": "nightwatch --config ./config/nightwatch-local.conf.js --test nightwatch/specs/**/*.test.ts  --env app.android.emulator --reporter=nightwatch-ctrf-json-reporter",
     "local": "nightwatch --config ./config/nightwatch-local.conf.js --test nightwatch/specs/**/*.test.ts  --env app.android.real --reporter=nightwatch-ctrf-json-reporter",
-    "clean": "rm -rf tests_output logs",
+    "clean": "rm -rf tests_output logs reports",
     "prebs": "npm run clean",
     "prelocal": "npm run clean",
     "generate": "ts-node ./ctrf/converter.ts",

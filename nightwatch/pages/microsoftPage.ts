@@ -117,6 +117,12 @@ const microsoftPage = {
             selector: '//android.view.ViewGroup[@content-desc="firstAppRunInputSave"]',
             locateStrategy: 'xpath',
         },
+        //
+        // Request access
+        requestAccessButton: {
+            selector: '//android.view.ViewGroup[@content-desc="Request Access"]',
+            locateStrategy: 'xpath',
+        },
     },
 } satisfies PageObjectModel;
 
