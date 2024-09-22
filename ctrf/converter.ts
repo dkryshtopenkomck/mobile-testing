@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Paths
-const inputPath = path.join(__dirname, 'ctrf-report.json');
-const outputPath = path.join(__dirname, "..", "reports", 'converted-report.json');
+const inputDir = __dirname; // Directory containing the input files
+const outputDir = path.join(__dirname, "..", "reports");
 
 // Interfaces for the original and new report structures
 interface OriginalTest {
@@ -120,29 +120,49 @@ function convertReport(originalReport: OriginalReport): NewReport[] {
     return [newReport];
 }
 
-// Read the original report from the file system
-fs.readFile(inputPath, 'utf-8', (err, data) => {
-    if (err) {
-        console.error(`Error reading the file: ${err}`);
-        return;
-    }
+// Function to process all JSON files in the input directory
+function processReports() {
+    fs.readdir(inputDir, (err, files) => {
+        if (err) {
+            console.error(`Error reading the directory: ${err}`);
+            return;
+        }
 
-    try {
-        // Parse the original JSON report
-        const originalReport: OriginalReport = JSON.parse(data);
+        files
+            .filter(file => file.endsWith('.json') && file !== 'converted-report.json') // Filter for JSON files
+            .forEach(file => {
+                const inputPath = path.join(inputDir, file);
+                const outputPath = path.join(outputDir, `converted-${file}`);
 
-        // Convert the report to the new format
-        const convertedReport = convertReport(originalReport);
+                // Read the original report from the file system
+                fs.readFile(inputPath, 'utf-8', (err, data) => {
+                    if (err) {
+                        console.error(`Error reading the file ${file}: ${err}`);
+                        return;
+                    }
 
-        // Write the converted report to a new file
-        fs.writeFile(outputPath, JSON.stringify(convertedReport, null, 2), (err) => {
-            if (err) {
-                console.error(`Error writing the file: ${err}`);
-            } else {
-                console.log(`Report successfully converted and saved to ${outputPath}`);
-            }
-        });
-    } catch (err) {
-        console.error(`Error parsing JSON: ${err}`);
-    }
-});
+                    try {
+                        // Parse the original JSON report
+                        const originalReport: OriginalReport = JSON.parse(data);
+
+                        // Convert the report to the new format
+                        const convertedReport = convertReport(originalReport);
+
+                        // Write the converted report to a new file
+                        fs.writeFile(outputPath, JSON.stringify(convertedReport, null, 2), (err) => {
+                            if (err) {
+                                console.error(`Error writing the file ${outputPath}: ${err}`);
+                            } else {
+                                console.log(`Report successfully converted and saved to ${outputPath}`);
+                            }
+                        });
+                    } catch (err) {
+                        console.error(`Error parsing JSON from file ${file}: ${err}`);
+                    }
+                });
+            });
+    });
+}
+
+// Run the report processing
+processReports();

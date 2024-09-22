@@ -23,12 +23,18 @@ const browserStack = {
   },
 }
 
-const nightwatchConfigs = {
-  src_folders: ['nightwatch/specs'],
-  page_objects_path: ["nightwatch/pages"],
-  live_output: true,
-  plugins: ['@nightwatch/browserstack'],
+const SUITE_DIR = process.env.SUITE_DIR || "**";
 
+const nightwatchConfigs = {
+  src_folders: [
+    `nightwatch/specs/${SUITE_DIR}/*.test.ts`
+  ],
+
+  page_objects_path: ["nightwatch/pages"],
+
+  live_output: true,
+
+  plugins: ['@nightwatch/browserstack'],
   // browserstack plugin settings...
   '@nightwatch/browserstack': {
     // set true to manage browserstack local tunnel. Defaults to false.
@@ -38,7 +44,7 @@ const nightwatchConfigs = {
       user: process.env.BROWSERSTACK_USERNAME,
       key: process.env.BROWSERSTACK_ACCESS_KEY,
       projectName: "BrowserStack Samples",
-      buildName: "BrowserStack Samples build",
+      buildName: `BrowserStack ${SUITE_DIR} build`,
     }
 
   },

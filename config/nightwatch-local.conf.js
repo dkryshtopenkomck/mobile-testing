@@ -8,7 +8,9 @@ if(!additonalEnvironments.test_settings)
 const nightwatchConfigs = {
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['nightwatch/specs/**/*.test.ts'],
+  src_folders: [
+    `nightwatch/specs/${process.env.SUITE_DIR || "**"}/*.test.ts`
+  ],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
   page_objects_path: ["nightwatch/pages"],

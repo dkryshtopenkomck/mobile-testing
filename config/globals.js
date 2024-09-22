@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
     // this controls whether to abort the test execution when an assertion failed and skip the rest
     // it's being used in waitFor commands and expect assertions
@@ -44,6 +46,7 @@ module.exports = {
     retryAssertionTimeout: 2000,
 
     ctrf: {
+        outputFile: `${process.env.SUITE_DIR}.json` || 'custom-name.json',
         appName: 'CX Mobile application',
         appVersion: '24.3.3',
         osPlatform: 'Android',
