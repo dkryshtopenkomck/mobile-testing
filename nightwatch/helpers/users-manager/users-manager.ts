@@ -21,6 +21,7 @@ export class UserManager {
         if (!user) {
             throw new Error(`User with signum "${signum}" not found!`);
         }
+        console.log("Current user info: ", user.preferred_username, user.signum, user.host);
         return {
             email: user.preferred_username,
             signum: user.signum,

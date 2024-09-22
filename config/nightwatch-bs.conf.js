@@ -45,7 +45,10 @@ const nightwatchConfigs = {
 
   test_settings: {
     default: {
-      launch_url: 'https://nightwatchjs.org'
+      launch_url: 'https://nightwatchjs.org',
+      request_timeout_options: {
+        timeout: 100000,
+      },
     },
 
     browserstack:  {
@@ -59,28 +62,13 @@ const nightwatchConfigs = {
         'appium:options': {
           automationName: 'UiAutomator2',
           // custom id for the uploaded app: https://www.browserstack.com/docs/app-automate/appium/upload-app-define-custom-id
-          app: process.env.BROWSERSTACK_APP_ID,
+          app: process.env.BROWSERSTACK_APP_ID || "cx-mobile-app",
           platformVersion: '11.0',
           deviceName: 'Google Pixel 5'
         },
-        // appUploadPath: './apps/app-cxacc-global-release.apk'
+        appUploadPath: process.env.BROWSERSTACK_APP_ID ? undefined : './apps/app-cxacc-global-release.apk'
       }
     },
-
-    // "browserstack.ios_01": {
-    //   extends: 'browserstack',
-    //   'desiredCapabilities': {
-    //     browserName: null,
-    //     'appium:options': {
-    //       automationName: 'XCUITest',
-    //       // custom id for the uploaded app: https://www.browserstack.com/docs/app-automate/appium/upload-app-define-custom-id
-    //       app: 'bs_sample_ios_app',
-    //       platformVersion: '16',
-    //       deviceName: 'iPhone 14'
-    //     },
-    //     appUploadPath: 'apps/ios_app.ipa'
-    //   }
-    // },
   }
 }
 

@@ -80,7 +80,10 @@ const nightwatchConfigs = {
           // chromedriver executable to use for testing web-views in hybrid apps.
           // add '.exe' at the end below (making it 'chromedriver.exe') if testing on windows.
           // chromedriverExecutable: `${__dirname}/chromedriver-mobile/chromedriver`,
-          newCommandTimeout: 0
+          newCommandTimeout: 0,
+          chromedriverExecutableDir: `${__dirname}/../chromedriver`,
+          chromedriverChromeMappingFile: `${__dirname}/../chromedriver/map.json`,
+          autoGrantPermissions: true
         }
       }
     },
@@ -113,6 +116,9 @@ const nightwatchConfigs = {
           // add device id of the device to run tests on,if multiple devices are online
           // Run command: `$ANDROID_HOME/platform-tools/adb devices` to get all connected devices
           // udid: '',
+          chromedriverExecutableDir: `${__dirname}/../chromedriver`,
+          chromedriverChromeMappingFile: `${__dirname}/../chromedriver/map.json`,
+          autoGrantPermissions: true
         }
       }
     },

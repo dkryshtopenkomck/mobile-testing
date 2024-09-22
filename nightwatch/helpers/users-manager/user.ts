@@ -34,9 +34,6 @@ export class User {
         this.tags = props.tags;
         this.host = process.env[`CREDENTIAL_MANAGER_MACHINE_${this.signum}`] || 'cx-acc.nro.ericsson.net';
         this.password = process.env[`CREDENTIAL_MANAGER_PASSWORD_${this.signum}`] as string;
-
         this.preferred_username = this.type === 'INTERNAL' ? this.upn : this.email;
-
-        console.info(`User: ${this.signum}, Email: ${this.preferred_username}, Host: ${this.host}`);
     }
 }

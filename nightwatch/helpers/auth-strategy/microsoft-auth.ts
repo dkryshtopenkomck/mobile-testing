@@ -2,7 +2,7 @@
 import {NightwatchAPI} from "nightwatch";
 import { AuthStrategy } from './auth-strategy';
 import { CredentialProfileReader } from "@sant-testing/node-credential-manager";
-import { MicrosoftPage } from "../../pages/microsoftPage";
+import {MicrosoftPage} from "../../pages/microsoftPage";
 
 class MicrosoftAuth implements AuthStrategy {
     constructor(private app: NightwatchAPI, private email: string, private signum: string, private host: string) {}

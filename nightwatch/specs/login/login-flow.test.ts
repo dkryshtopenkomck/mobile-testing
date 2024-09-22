@@ -1,5 +1,5 @@
 import {NightwatchAPI} from 'nightwatch';
-import {UserManager} from "../../services/users/users-manager";
+import {UserManager} from "../../helpers/users-manager/users-manager";
 import AuthFactory from "../../helpers/auth-strategy/auth-factory";
 
 describe('Login flow', function() {
@@ -12,5 +12,9 @@ describe('Login flow', function() {
         app,
         userCredentials.email, userCredentials.signum, userCredentials.host);
     await authStrategy.login();
+  });
+
+  it("CXF-1937: Test Request Access page", async function(app: NightwatchAPI) {
+    await app.pause(10000)
   });
 });

@@ -1,5 +1,7 @@
 import { PageObjectModel, EnhancedPageObject } from 'nightwatch';
 
+const ENTER_KEYCODE = 66;
+
 const microsoftPageCommands = {
     waitForLoginButton(this: EnhancedPageObject) {
         return this.waitForElementPresent('@loginButton', 60000);
@@ -24,11 +26,11 @@ const microsoftPageCommands = {
     },
 
     // todo figure out
-    async clickIfAvailable(this: EnhancedPageObject, selector: string, timeout: number = 10000) {
-        const isPresent = await this.waitForElementPresent(selector, timeout, 1000);
-        if (isPresent) {
-            await this.click(selector);
-        }
+    async clickIfAvailable(this: EnhancedPageObject, selector: string, timeout: number = 15000) {
+           const isPresent = await this.waitForElementPresent(selector, timeout, 2000);
+           if (isPresent) {
+               await this.click(selector);
+           }
     },
 
 
@@ -51,7 +53,10 @@ const microsoftPageCommands = {
         await this.click('@signInAnotherWayButton');
         await this.click('@proofTile');
         await this.sendKeys('@otpInput', otp);
-        await this.click('@signInButton');
+        // await this.click('@signInButton');
+        await this.api.appium.pressKeyCode(ENTER_KEYCODE);
+        await this.api.pause(1000);
+        await this.api.appium.pressKeyCode(ENTER_KEYCODE);
         await this.waitForNativeContext();
         await this.api.appium.setContext('NATIVE_APP');
         await this.api.pause(10000);

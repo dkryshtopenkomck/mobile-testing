@@ -5,13 +5,14 @@ module.exports = {
 
     // this will overwrite the default polling interval (currently 500ms) for waitFor commands
     // and expect assertions that use retry
-    waitForConditionPollInterval: 2000,
+    waitForConditionPollInterval: 1000,
 
     // default timeout value in milliseconds for waitFor commands and implicit waitFor value for
     // expect assertions
     waitForConditionTimeout : 15000,
 
-    waitStartTime : 60000,
+    // 1.5 min
+    waitStartTime : 90000,
 
     // since 1.4.0 – this controls whether to abort the test execution when an element cannot be located; an error
     // is logged in all cases, but this also enables skipping the rest of the testcase;
