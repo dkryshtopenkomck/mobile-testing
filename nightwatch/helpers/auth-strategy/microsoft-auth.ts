@@ -13,6 +13,7 @@ class MicrosoftAuth implements AuthStrategy {
 
         const microsoftPage = this.app.page.microsoftPage() as MicrosoftPage;
         await microsoftPage.login(this.email, password, totp);
+        await this.app.appium.resetApp()
     }
 }
 

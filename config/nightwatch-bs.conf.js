@@ -46,9 +46,11 @@ const nightwatchConfigs = {
   test_settings: {
     default: {
       launch_url: 'https://nightwatchjs.org',
-      request_timeout_options: {
-        timeout: 100000,
-      },
+      // request_timeout_options: {
+      //   timeout: 100000,
+      // },
+      skip_testcases_on_fail: false,
+      end_session_on_fail: true,
     },
 
     browserstack:  {
@@ -69,6 +71,7 @@ const nightwatchConfigs = {
         appUploadPath: process.env.BROWSERSTACK_APP_ID ? undefined : './apps/app-cxacc-global-release.apk'
       }
     },
+
   }
 }
 

@@ -31,6 +31,11 @@ const nightwatchConfigs = {
   live_output: true,
 
   'test_settings':{
+    default: {
+      // https://github.com/nightwatchjs/nightwatch/issues/609#issuecomment-132535813
+      skip_testcases_on_fail: false,
+      end_session_on_fail: true,
+    },
     app: {
       selenium: {
         start_process: true,

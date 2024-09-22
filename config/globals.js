@@ -1,7 +1,7 @@
 module.exports = {
     // this controls whether to abort the test execution when an assertion failed and skip the rest
     // it's being used in waitFor commands and expect assertions
-    abortOnAssertionFailure: true,
+    abortOnAssertionFailure: false,
 
     // this will overwrite the default polling interval (currently 500ms) for waitFor commands
     // and expect assertions that use retry
@@ -41,11 +41,12 @@ module.exports = {
 
     // Automatically retrying failed assertions - You can tell Nightwatch to automatically retry failed assertions
     // until a given timeout is reached, before the test runner gives up and fails the test.
-    retryAssertionTimeout: 5000,
+    retryAssertionTimeout: 2000,
 
-    // Custom reporter
-    reporter: function(results, done) {
-        // do something with the results
-        done(results);
-    }
+    ctrf: {
+        appName: 'CX Mobile application',
+        appVersion: '24.3.3',
+        osPlatform: 'Android',
+        osVersion: '13.0'
+    },
 }

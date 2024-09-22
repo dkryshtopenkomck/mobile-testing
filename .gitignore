@@ -3,6 +3,8 @@
 
 # Apps
 /apps/
+/chromedriver/
+/ctrf/*.json
 
 # Logs
 *.log
