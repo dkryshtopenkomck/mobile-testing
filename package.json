@@ -9,7 +9,7 @@
     "emulator": "npm start -- --config ./config/nightwatch-local.conf.js --env app.android.emulator",
     "local": "npm start -- --config ./config/nightwatch-local.conf.js --env app.android.real",
     "clean": "rm -rf tests_output logs reports/*.json ctrf/*.json",
-    "generate": "ts-node ./ctrf/converter.ts",
+    "generate": "ts-node ./ctrf",
     "xray": "xray send -t CXF-13219 -e cx-acc -s \"($DEVICE_NAME) Daily mobile test execution %datetime%\"",
     "send": "npm run generate && npm run xray"
   },

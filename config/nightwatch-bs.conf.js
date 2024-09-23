@@ -32,6 +32,9 @@ const nightwatchConfigs = {
 
   page_objects_path: ["nightwatch/pages"],
 
+  // See https://nightwatchjs.org/guide/concepts/test-globals.html
+  globals_path: './globals.js',
+
   live_output: true,
 
   plugins: ['@nightwatch/browserstack'],
