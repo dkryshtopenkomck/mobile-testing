@@ -1,0 +1,134 @@
+[
+  {
+    "signum": "ZGLAVIA",
+    "type": "INTERNAL",
+    "email": "viacheslav.glazhevskyi@capgemini.com",
+    "upn": "zglavia@ericsson.com",
+    "role": "",
+    "tags": [
+      "default_user",
+      "internal_user",
+      "web",
+      "regression_testing",
+      "idm_roles_rich"
+    ]
+  },
+  {
+    "signum": "ZKRYDMY",
+    "type": "INTERNAL",
+    "email": "dmytro.kryshtopenko@capgemini.com",
+    "upn": "zkrydmy@ericsson.com",
+    "role": "role:dmp:implementation_manager",
+    "tags": ["internal_user", "mobile"]
+  },
+  {
+    "signum": "ZSLAGLA",
+    "type": "EXTERNAL",
+    "email": "vglazhevskyi@lohika.com",
+    "upn": "zslagla@xead.ericsson.com",
+    "role": "role:permission_admin",
+    "tags": ["external_user", "web", "permission_admin"]
+  },
+  {
+    "signum": "ZGLASLA",
+    "type": "EXTERNAL",
+    "email": "v.glazhevskyi@gmail.com",
+    "upn": "zglasla@xead.ericsson.com",
+    "role": "",
+    "tags": [
+      "external_user",
+      "web",
+      "regression_testing",
+      "idm_roles_poor",
+      "no_business_role"
+    ]
+  },
+  {
+    "signum": "ZMANIMP",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+im@gmail.com",
+    "upn": "zmanimp@xead.ericsson.com",
+    "role": "role:dmp:implementation_manager",
+    "tags": ["external_user", "web", "implementation_manager"]
+  },
+  {
+    "signum": "ZLEATEA",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+tl@gmail.com",
+    "upn": "zleatea@xead.ericsson.com",
+    "role": "role:dmp:team_lead",
+    "tags": ["external_user", "web", "team_lead"]
+  },
+  {
+    "signum": "ZADMERI",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+ea@gmail.com",
+    "upn": "zadmeri@xead.ericsson.com",
+    "role": "aaSRole:ericsson_admin",
+    "tags": ["external_user", "web", "ericsson_admin"]
+  },
+  {
+    "signum": "ZADMCUS",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+ca@gmail.com",
+    "upn": "zadmcus@xead.ericsson.com",
+    "role": "aaSRole:customer_admin",
+    "tags": ["external_user", "web", "customer_admin"]
+  },
+  {
+    "signum": "ZUSECUS",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+cu@gmail.com",
+    "upn": "zusecus@xead.ericsson.com",
+    "role": "aaSRole:customer_user",
+    "tags": ["external_user", "web", "customer_user"]
+  },
+  {
+    "signum": "ZWORWOR",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+w@gmail.com",
+    "upn": "zworwor@xead.ericsson.com",
+    "role": "role:dmp:worker",
+    "tags": ["external_user", "web", "mobile", "worker"]
+  },
+  {
+    "signum": "ZADMREG",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+ra@gmail.com",
+    "upn": "zadmreg@xead.ericsson.com",
+    "role": "role:dmp:regional_admin",
+    "tags": ["external_user", "web", "regional_admin"]
+  },
+  {
+    "signum": "ZTEAIND",
+    "type": "EXTERNAL",
+    "email": "cxtestusers+indiatl@gmail.com",
+    "upn": "zteaind@xead.ericsson.com",
+    "role": "role:dmp:team_lead",
+    "tags": ["external_user", "web", "mobile", "team_lead_india"]
+  },
+  {
+    "signum": "ZKRYDMYCHINA",
+    "type": "KEYCLOAK",
+    "email": "dmytro.kryshtopenko@capgemini.com",
+    "upn": "zkrydmy@ericsson.com",
+    "role": "role:dmp:implementation_manager",
+    "tags": ["mobile", "china"]
+  },
+  {
+    "signum": "ZDENIVACU",
+    "type": "KEYCLOAK",
+    "email": "denys.ivanov@capgemini.com",
+    "upn": "denys.ivanov@capgemini.com",
+    "role": "role:dmp:implementation_manager",
+    "tags": ["mobile", "china"]
+  },
+  {
+    "signum": "ZLEATEACU1",
+    "type": "KEYCLOAK",
+    "email": "denys.ivanov+tl1@capgemini.com",
+    "upn": "denys.ivanov+tl1@capgemini.com",
+    "role": "role:dmp:team_lead",
+    "tags": ["mobile", "china"]
+  }
+]

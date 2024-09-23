@@ -23,12 +23,21 @@ const browserStack = {
   },
 }
 
-const nightwatchConfigs = {
-  src_folders: ['nightwatch/specs'],
-  page_objects_path: ["nightwatch/pages"],
-  live_output: true,
-  plugins: ['@nightwatch/browserstack'],
+const SUITE_DIR = process.env.SUITE_DIR || "**";
 
+const nightwatchConfigs = {
+  src_folders: [
+    `nightwatch/specs/${SUITE_DIR}/*.test.ts`
+  ],
+
+  page_objects_path: ["nightwatch/pages"],
+
+  // See https://nightwatchjs.org/guide/concepts/test-globals.html
+  globals_path: './globals.js',
+
+  live_output: true,
+
+  plugins: ['@nightwatch/browserstack'],
   // browserstack plugin settings...
   '@nightwatch/browserstack': {
     // set true to manage browserstack local tunnel. Defaults to false.
@@ -38,14 +47,19 @@ const nightwatchConfigs = {
       user: process.env.BROWSERSTACK_USERNAME,
       key: process.env.BROWSERSTACK_ACCESS_KEY,
       projectName: "BrowserStack Samples",
-      buildName: "BrowserStack Samples build",
+      buildName: `BrowserStack ${SUITE_DIR} build`,
     }
 
   },
 
   test_settings: {
     default: {
-      launch_url: 'https://nightwatchjs.org'
+      launch_url: 'https://nightwatchjs.org',
+      // request_timeout_options: {
+      //   timeout: 100000,
+      // },
+      skip_testcases_on_fail: false,
+      end_session_on_fail: true,
     },
 
     browserstack:  {
@@ -59,28 +73,14 @@ const nightwatchConfigs = {
         'appium:options': {
           automationName: 'UiAutomator2',
           // custom id for the uploaded app: https://www.browserstack.com/docs/app-automate/appium/upload-app-define-custom-id
-          app: process.env.BROWSERSTACK_APP_ID,
+          app: process.env.BROWSERSTACK_APP_ID || "cx-mobile-app",
           platformVersion: '11.0',
           deviceName: 'Google Pixel 5'
         },
-        // appUploadPath: './apps/app-cxacc-global-release.apk'
+        appUploadPath: process.env.BROWSERSTACK_APP_ID ? undefined : './apps/app-cxacc-global-release.apk'
       }
     },
 
-    // "browserstack.ios_01": {
-    //   extends: 'browserstack',
-    //   'desiredCapabilities': {
-    //     browserName: null,
-    //     'appium:options': {
-    //       automationName: 'XCUITest',
-    //       // custom id for the uploaded app: https://www.browserstack.com/docs/app-automate/appium/upload-app-define-custom-id
-    //       app: 'bs_sample_ios_app',
-    //       platformVersion: '16',
-    //       deviceName: 'iPhone 14'
-    //     },
-    //     appUploadPath: 'apps/ios_app.ipa'
-    //   }
-    // },
   }
 }
 

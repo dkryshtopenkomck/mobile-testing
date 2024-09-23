@@ -3,6 +3,8 @@
 
 # Apps
 /apps/
+/chromedriver/
+/ctrf/*.json
 
 # Logs
 *.log
@@ -23,7 +25,7 @@ yarn-error.log*
 /*.iml
 
 # Nightwatch reports
-/reports/
+/reports/*.json
 /tests_output/
 
 # Appium

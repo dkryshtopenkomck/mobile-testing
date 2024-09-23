@@ -8,7 +8,9 @@ if(!additonalEnvironments.test_settings)
 const nightwatchConfigs = {
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['nightwatch/specs'],
+  src_folders: [
+    `nightwatch/specs/${process.env.SUITE_DIR || "**"}/*.test.ts`
+  ],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
   page_objects_path: ["nightwatch/pages"],
@@ -31,6 +33,11 @@ const nightwatchConfigs = {
   live_output: true,
 
   'test_settings':{
+    default: {
+      // https://github.com/nightwatchjs/nightwatch/issues/609#issuecomment-132535813
+      skip_testcases_on_fail: false,
+      end_session_on_fail: true,
+    },
     app: {
       selenium: {
         start_process: true,
@@ -80,7 +87,10 @@ const nightwatchConfigs = {
           // chromedriver executable to use for testing web-views in hybrid apps.
           // add '.exe' at the end below (making it 'chromedriver.exe') if testing on windows.
           // chromedriverExecutable: `${__dirname}/chromedriver-mobile/chromedriver`,
-          newCommandTimeout: 0
+          newCommandTimeout: 0,
+          chromedriverExecutableDir: `${__dirname}/../chromedriver`,
+          chromedriverChromeMappingFile: `${__dirname}/../chromedriver/map.json`,
+          autoGrantPermissions: true
         }
       }
     },
@@ -113,6 +123,9 @@ const nightwatchConfigs = {
           // add device id of the device to run tests on,if multiple devices are online
           // Run command: `$ANDROID_HOME/platform-tools/adb devices` to get all connected devices
           // udid: '',
+          chromedriverExecutableDir: `${__dirname}/../chromedriver`,
+          chromedriverChromeMappingFile: `${__dirname}/../chromedriver/map.json`,
+          autoGrantPermissions: true
         }
       }
     },

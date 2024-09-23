@@ -4,30 +4,34 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bs": "nightwatch --config ./config/nightwatch-bs.conf.js --test nightwatch/specs/**/*.test.ts --env browserstack.android",
-    "local": "nightwatch --config ./config/nightwatch-local.conf.js --test nightwatch/specs/**/*.test.ts  --env app.android.emulator",
-    "clean": "rm -rf tests_output logs",
-    "prebs": "npm run clean",
-    "prelocal": "npm run clean"
+    "start": "nightwatch --workers=1 --reporter=nightwatch-ctrf-json-reporter",
+    "bs": "npm start -- --config ./config/nightwatch-bs.conf.js --env browserstack.android",
+    "emulator": "npm start -- --config ./config/nightwatch-local.conf.js --env app.android.emulator",
+    "local": "npm start -- --config ./config/nightwatch-local.conf.js --env app.android.real",
+    "clean": "rm -rf tests_output logs reports/*.json ctrf/*.json",
+    "generate": "ts-node ./ctrf",
+    "xray": "xray send -t CXF-13219 -e cx-acc -s \"($DEVICE_NAME) Daily mobile test execution %datetime%\"",
+    "send": "npm run generate && npm run xray"
   },
   "keywords": [],
   "author": "Kryshtopenko Dmytro <dmytro.kryshtopenko@capgemini.com>",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cx-testing/wdio-xray-cli": "^0.4.1",
     "@nightwatch/browserstack": "^3.4.0",
     "@nightwatch/mobile-helper": "^1.0.0",
     "@swc/core": "^1.7.26",
     "appium": "^2.11.4",
     "appium-uiautomator2-driver": "^3.8.0",
     "nightwatch": "^3.8.0",
+    "nightwatch-ctrf-json-reporter": "^0.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "@sant-testing/node-credential-manager": "^1.0.4",
     "@cx-testing/msauth-cli": "^0.1.0",
-    "@cx-testing/wdio-xray-cli": "^0.4.1"
+    "@sant-testing/node-credential-manager": "^1.0.4",
+    "dotenv": "^16.4.5"
   }
 }

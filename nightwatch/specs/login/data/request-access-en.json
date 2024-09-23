@@ -1,0 +1,14 @@
+{
+  "internalUserLabel": "Internal user",
+  "internalUserValue": "if you are an internal Ericsson user (employee or consultant) continue here for access information.",
+  "internalUserAccessLink": "Internal user access",
+
+  "externalUserLabel": "External user",
+  "externalUserValue": "if you have a signum that starts with 'Z' or 'X', your Ericsson contact person can request access for you.",
+  "externalUserAccessLink": "External user access",
+
+  "strongAuthLabel": "Strong Authentication",
+  "strongAuthValue": "Ericsson Connected Operations requires two-factor authentication provided by the Strong Authentication Service. If you have not enrolled to the Strong Authentication Service continue with one of the following options.",
+  "manageInternalUserLink": "Manage Internal user Strong Authentication",
+  "manageExternalUserLink": "Manage External user Strong Authentication"
+}

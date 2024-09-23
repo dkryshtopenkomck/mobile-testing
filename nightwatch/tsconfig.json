@@ -10,7 +10,8 @@
     "skipLibCheck": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node", "nightwatch"]
   },
   "ts-node": {
     "transpileOnly": true

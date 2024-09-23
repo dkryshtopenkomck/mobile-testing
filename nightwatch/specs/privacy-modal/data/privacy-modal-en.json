@@ -1,0 +1,13 @@
+{
+  "privacyTitle": "User Data Collection",
+  "privacyDocumentName": "Privacy Notice for Ericsson Employees and External Workforce",
+  "privacyDataController": "Data controller for the system is Ericsson AB, 164 80 Stockholm, Sweden. The Data Protection Officer can be contacted by email ericsson.group.privacy@ericsson.com ",
+  "privacyPersonalData": "Your personal data is processed for performing tools usage analysis to improve our tools.",
+  "privacyCategoriesOfData": "The categories of data which is processed is the tool usage together with the anonymized user id and so cannot be used for a particular user tracking as the data is only related to the relevant BA/MA and country.",
+  "privacyBNEW": "The data is processed by BNEW SAN Tools.",
+  "privacyThirdParty": "The data is not transferred to any other third party.",
+  "privacyAnonymizedStore": "The data will be stored anonymized for a maximum of 2 years.",
+  "privacyRights": "You have the right to complain on the data processing with a data protection supervisory authority.",
+  "privacyDecision": "There is no automated decision making nor profiling involved in the processing.",
+  "privacyOkButton": "OK"
+}
